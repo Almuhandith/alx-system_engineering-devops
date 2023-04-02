@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
-# Script that installs Nginx server and redirects /redirect_me
-apt-get -y update
-apt-get -y install nginx
-echo "Hello world" > /var/www/html/index.nginx-debian.html
-sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Almuhandith permanent;/" /etc/nginx/sites-available/default
-service nginx start
+# Configure Nginx server so that /redirect_me is redirecting to another page
+
+# Install nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Configuration
+ufw allow 'Nginx HTTP'
+
+# Creating Sample Page
+echo "Hello World!" > /etc/nginx/html/index.html
+
+# add the following configuration to the existing server block
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/defaulit
+
+# Restart Nginx
+service nginx restart
