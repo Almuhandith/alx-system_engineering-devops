@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Script that uses JSONPlaceholder API to get information about employee"""
+"""A python script that gets ibformation about employees from an API"""
 import requests
 import sys
+
 
 if __name__ == "__main__":
     base_url = "https://jsonplaceholder.typicode.com"
