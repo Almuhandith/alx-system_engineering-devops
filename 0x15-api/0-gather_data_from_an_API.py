@@ -23,8 +23,8 @@ if __name__ == "__main__":
     employee = response.json()
     employee_name = employee['name']
 
-    print(f"Employee {employee_name} is done with", end=' ')
-    print(f"tasks({num_completed_tasks}/{total_num_tasks}):")
+    print("Employee {} is done with".format(employee_name), end=' ')
+    print("tasks({}/{}):".format(num_completed_tasks, total_num_tasks))
 
     for task in tasks:
         if task['completed']:
