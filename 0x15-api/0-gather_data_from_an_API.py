@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A python script that gets ibformation about employees from an API"""
+"""A python script that gets information about employees from an API"""
 import requests
 import sys
 
