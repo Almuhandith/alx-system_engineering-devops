@@ -14,10 +14,10 @@ if __name__ == "__main__":
 
     employee_id = int(sys.argv[1])
 
-    response = requests.get(f"{base_url}/todos?userId={employee_id}")
+    response = requests.get("{}/todos?userId={}".format(base_url, employee_id))
     tasks = json.loads(response.text)
 
-    response = requests.get(f"{base_url}/users/{employee_id}")
+    response = requests.get("{}/users/{}".format(base_url, employee_id))
     employee = json.loads(response.text)
     employee_name = employee['name']
     employee_username = employee['username']
@@ -29,4 +29,4 @@ if __name__ == "__main__":
         for task in tasks:
             writer.writerow([employee_id, employee_username, task['completed'], task['title']])
 
-        print(f"Employee {employee_name} TODO list progress has been exported to {filename}.")
+        print("Employee {} TODO list progress has been exported to {}.".format(employee_name, filename))
