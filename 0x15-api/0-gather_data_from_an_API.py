@@ -16,13 +16,13 @@ if __name__ == "__main__":
 
     employee_id = int(sys.argv[1])
 
-    response = requests.get(f"{base_url}/todos?userId={employee_id}")
+    response = requests.get("{}/todos?userId={}".format(base_url, employee_id))
     tasks = response.json()
 
     num_completed_tasks = sum(1 for task in tasks if task['completed'])
     total_num_tasks = len(tasks)
 
-    response = requests.get(f"{base_url}/users/{employee_id}")
+    response = requests.get("{}/users/{}".format(base_url, employee_id))
     employee = response.json()
     employee_name = employee['name']
 
