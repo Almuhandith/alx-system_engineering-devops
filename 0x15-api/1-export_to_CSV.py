@@ -22,7 +22,7 @@ if __name__ == "__main__":
     employee_name = employee['name']
     employee_username = employee['username']
 
-    filename = f"{employee_id}.csv"
+    filename = "{}.csv".format(employee_id)
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
