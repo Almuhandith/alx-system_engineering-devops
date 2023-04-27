@@ -31,4 +31,4 @@ if __name__ == "__main__":
 
     for task in tasks:
         if task['completed']:
-            print(f"\t {task['title']}")
+            print("\t{}".format(task['title']))
